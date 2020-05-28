@@ -13,3 +13,4 @@
 
 ## Other changes
 - Changed bar height
+- Color scheme of layout and status changed to SchemeSel
