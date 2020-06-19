@@ -92,7 +92,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
   { MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
   { MODSUP,                       XK_Return, spawn,          SHCMD("st") },
-  { MODSUP,                       XK_f,      spawn,          SHCMD("brave") },
+  { MODSUP,                       XK_f,      spawn,          SHCMD("firefox") },
   { MODSUP,                       XK_w,      spawn,          SHCMD("st -e ranger") },
   { MODSUP,                       XK_i,      spawn,          SHCMD("st -e htop") },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
