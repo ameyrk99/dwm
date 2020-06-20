@@ -8,6 +8,7 @@
 static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int gappx     = 10;       /* gaps between windows */
 static const unsigned int snap      = 0;        /* snap pixel */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
@@ -39,17 +40,18 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-  { "firefox",            NULL,           NULL,   1 << 1,       0,           -1 },
-  { "Brave-browser",      NULL,           NULL,   1 << 1,       0,           -1 },
-  { "Spotify",            NULL,           NULL,   1 << 2,       0,           -1 },
-  { "code-oss",           NULL,           NULL,   1 << 3,       0,           -1 },
-  { "Gimp",               NULL,           NULL,   1 << 4,       0,           -1 },
-  { "discord",            NULL,           NULL,   1 << 5,       0,           -1 },
-  { "Steam",              NULL,           NULL,   1 << 5,       0,           -1 },
-  { "retroarch",          NULL,           NULL,   1 << 5,       0,           -1 },
-  { NULL,                 "libreoffice",  NULL,   1 << 6,       0,           -1 },
-  { "Tor Browser",        NULL,           NULL,   1 << 8,       0,           -1 },
+	/* class            instance        title   tags mask     isfloating  isterminal  noswallow  monitor */
+	{ "st-256color",    NULL,           NULL,        0,       0,            1,         0,         -1 },
+	{ "firefox",        NULL,           NULL,   1 << 1,       0,            0,        -1,        -1 },
+	{ "Brave-browser",  NULL,           NULL,   1 << 1,       0,            0,        -1,        -1 },
+	{ "Spotify",        NULL,           NULL,   1 << 2,       0,            0,        -1,        -1 },
+	{ "code-oss",       NULL,           NULL,   1 << 3,       0,            0,        -1,        -1 },
+	{ "Gimp",           NULL,           NULL,   1 << 4,       0,            0,        -1,        -1 },
+	{ "discord",        NULL,           NULL,   1 << 5,       0,            0,        -1,        -1 },
+	{ "Steam",          NULL,           NULL,   1 << 5,       0,            0,        -1,        -1 },
+	{ "retroarch",      NULL,           NULL,   1 << 5,       0,            0,        -1,        -1 },
+	{ NULL,             "libreoffice",  NULL,   1 << 6,       0,            0,        -1,        -1 },
+	{ "Tor Browser",    NULL,           NULL,   1 << 8,       0,            0,        -1,        -1 },
 }; // }}}1
 
 /* => Layout(s) {{{1 */
@@ -92,7 +94,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
   { MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
   { MODSUP,                       XK_Return, spawn,          SHCMD("st") },
-  { MODSUP,                       XK_f,      spawn,          SHCMD("firefox") },
+  { MODSUP,                       XK_f,      spawn,          SHCMD("brave") },
   { MODSUP,                       XK_w,      spawn,          SHCMD("st -e ranger") },
   { MODSUP,                       XK_i,      spawn,          SHCMD("st -e htop") },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
