@@ -26,8 +26,10 @@ static const char *colors[][3]      = {
 };
 
 /* static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
-static const char *alttags[] = { " HOME", " WEB", " MUSIC", " CODE", " EDIT", " GAME", " OFFICE", " HMM", " MISC" };
+/* static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+ * static const char *alttags[] = { " HOME", " WEB", " MUSIC", " CODE", " EDIT", " GAME", " OFFICE", " HMM", " MISC" }; */
+static const char *tags[] =    {"","","","","","","","","",};
+static const char *alttags[] = {"","","","","","","","","",};
 // }}}1
 
 // => Window rules {{{1
@@ -42,6 +44,7 @@ static const Rule rules[] = {
 	{ "Spotify",        NULL,           NULL,   1 << 2,       0,          -1 },
 	{ "code-oss",       NULL,           NULL,   1 << 3,       0,          -1 },
 	{ "Gimp",           NULL,           NULL,   1 << 4,       0,          -1 },
+	{ "krita",          NULL,           NULL,   1 << 4,       0,          -1 },
 	{ "discord",        NULL,           NULL,   1 << 5,       0,          -1 },
 	{ "Steam",          NULL,           NULL,   1 << 5,       0,          -1 },
 	{ "retroarch",      NULL,           NULL,   1 << 5,       0,          -1 },
@@ -57,9 +60,10 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 static const Layout layouts[] = {
 	/* symbol     arrange function */
   { "",      tile },
-  { "",      NULL },
+  { "",      NULL },
   { "",    monocle },
 }; // }}}1
+
 
 /* => Key definitions {{{1 */
 #define MODKEY Mod1Mask
