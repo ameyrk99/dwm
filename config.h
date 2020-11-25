@@ -44,6 +44,7 @@ static const Rule rules[] = {
 	 */
 	/* class                            instance        title   tags mask     isfloating  monitor */
 	{ "firefox",                        NULL,           NULL,   1 << 1,       0,          -1 },
+	{ "firefox", 				NULL,           "Picture-in-Picture",   		 0,       1,          -1 },
 	{ "Brave-browser",                  NULL,           NULL,   1 << 1,       0,          -1 },
 	{ "Spotify",                        NULL,           NULL,   1 << 2,       0,          -1 },
 	{ "code-oss",                       NULL,           NULL,   1 << 3,       0,          -1 },
@@ -54,9 +55,6 @@ static const Rule rules[] = {
 	{ "retroarch",                      NULL,           NULL,   1 << 5,       0,          -1 },
 	{ NULL,                             "libreoffice",  NULL,   1 << 6,       0,          -1 },
 	{ "Tor Browser",                    NULL,           NULL,   1 << 8,       0,          -1 },
-
-	{ "Microsoft Teams - Preview",      NULL,           NULL,   0,            1,          -1 },
-	{ "Todoist",                        NULL,           NULL,   0,            1,          -1 },
 }; // }}}1
 
 /* => Layout(s) {{{1 */
@@ -70,7 +68,6 @@ static const Layout layouts[] = {
   { "",      NULL },
   { "",    monocle },
 }; // }}}1
-
 
 /* => Key definitions {{{1 */
 #define MODKEY Mod1Mask
@@ -100,9 +97,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
   { MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
   { MODSUP,                       XK_Return, spawn,          SHCMD("st") },
-  { MODSUP,                       XK_f,      spawn,          SHCMD("brave") },
-  { MODSUP,                       XK_t,      spawn,          SHCMD("todoist") },
-  { MODSUP,                       XK_w,      spawn,          SHCMD("st -e ranger") },
+  { MODSUP,                       XK_f,      spawn,          SHCMD("firefox") },
+  /* { MODSUP,                       XK_t,      spawn,          SHCMD("todoist") }, */
+  { MODSUP,                       XK_w,      spawn,          SHCMD("thunar") },
   { MODSUP,                       XK_i,      spawn,          SHCMD("st -e htop") },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
   // }}}2
@@ -185,5 +182,6 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 	{ ClkStatusText,        ControlMask,    Button2,        spawn,          SHCMD("~/.dotfiles/scripts/wallpaper.sh ~/Pictures/Wallpapers/dwmwalls") },
+	{ ClkStatusText,        0,    					Button1,        spawn,          SHCMD("gsimplecal") },
 }; // }}}1
 
