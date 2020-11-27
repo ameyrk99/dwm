@@ -76,7 +76,7 @@
 
 /* enums */
 enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
-enum { SchemeNorm, SchemeSel }; /* color schemes */
+enum { SchemeNorm, SchemeSel, SchemeYellow, SchemeRed, SchemeGreen, SchemeBlue, SchemeMagenta, SchemeCyan }; /* color schemes */
 enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
        NetSystemTray, NetSystemTrayOP, NetSystemTrayOrientation, NetSystemTrayOrientationHorz,
        NetWMFullscreen, NetActiveWindow, NetWMWindowType,
@@ -814,17 +814,45 @@ drawbar(Monitor *m)
 {
 	int x, w, tw = 0, stw = 0;
 	unsigned int i, occ = 0, urg = 0;
+  char *ts = stext;
+  char *tp = stext;
+  int tx = 0;
+  char ctmp;
 	const char *tagtext;
 	Client *c;
 
 	if(showsystray && m == systraytomon(m))
 		stw = getsystraywidth();
 
+  /* correction for colours */
+  int correct = 0;
+  char *xcape = malloc (sizeof (char) * 128);
+  memset(xcape,0,sizeof (char) * 128);
+  for ( ; *ts != '\0' ; ts++) {    
+      if (*ts <= LENGTH(colors)) {
+          sprintf(xcape,"%c",*ts);
+          correct += TEXTW(xcape) - lrpad;
+      }
+  }
+  free(xcape);
+  ts = stext;
+
 	/* draw status first so it can be overdrawn by tags later */
 	if (m == selmon) { /* status is only drawn on selected monitor */
 		drw_setscheme(drw, scheme[SchemeNorm]);
-		tw = TEXTW(stext) - lrpad / 2 + 2; /* 2px right padding */
-		drw_text(drw, m->ww - tw - stw, 0, tw, bh, lrpad / 2 - 2, stext, 0);
+		tw = TEXTW(stext) - lrpad / 2 + 2 - correct; /* 2px right padding and correction for escape sequences */
+		/* drw_text(drw, m->ww - tw - stw, 0, tw, bh, lrpad / 2 - 2, stext, 0); */
+		while (1) {
+			if ((unsigned int)*ts > LENGTH(colors)) { ts++; continue ; }
+			ctmp = *ts;
+			*ts = '\0';
+      drw_text(drw, m->ww - tw - stw + tx, 0, tw - tx, bh, lrpad / 2 - 2, tp, 0);
+			tx += TEXTW(tp) -lrpad;
+			if (ctmp == '\0') { break; }
+			drw_setscheme(drw, scheme[(unsigned int)(ctmp-1)]);
+			*ts = ctmp;
+			tp = ++ts;
+		}
 	}
 
 	resizebarwin(m);

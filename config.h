@@ -24,9 +24,15 @@ static const char *fonts[]          = {
 
 #include "../colors.h"
 static const char *colors[][3]      = {
-	/*               fg        bg        border     */
-	[SchemeNorm]          = { col_fg,   col_bg,   col_bdnorm },
-	[SchemeSel]           = { col_bg,   col_cyan, col_cyan   },
+	/*                  fg       bg          border     */
+	[SchemeNorm]    = { col_fg,  col_bg,      col_bdnorm },
+	[SchemeSel]     = { col_bg,  col_blue,    col_blue   },
+  [SchemeYellow]  = { col_bg,  col_yellow,  col_yellow  },
+  [SchemeRed]     = { col_bg,  col_red,     col_red  },
+  [SchemeGreen]   = { col_bg,  col_green,   col_green },
+  [SchemeBlue]    = { col_bg,  col_blue,    col_blue },
+  [SchemeMagenta] = { col_bg,  col_magenta, col_magenta },
+  [SchemeCyan]    = { col_bg,  col_cyan,    col_cyan },
 };
 
 /* static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; */
