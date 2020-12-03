@@ -48,19 +48,21 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class                            instance        title   tags mask     isfloating  monitor */
-	{ "firefox",                        NULL,           NULL,   1 << 1,       0,          -1 },
-	{ "firefox", 				NULL,           "Picture-in-Picture",   		 0,       1,          -1 },
-	{ "Brave-browser",                  NULL,           NULL,   1 << 1,       0,          -1 },
-	{ "Spotify",                        NULL,           NULL,   1 << 2,       0,          -1 },
-	{ "code-oss",                       NULL,           NULL,   1 << 3,       0,          -1 },
-	{ "Gimp",                           NULL,           NULL,   1 << 4,       0,          -1 },
-	{ "krita",                          NULL,           NULL,   1 << 4,       0,          -1 },
-	{ "discord",                        NULL,           NULL,   1 << 5,       0,          -1 },
-	{ "Steam",                          NULL,           NULL,   1 << 5,       0,          -1 },
-	{ "retroarch",                      NULL,           NULL,   1 << 5,       0,          -1 },
-	{ NULL,                             "libreoffice",  NULL,   1 << 6,       0,          -1 },
-	{ "Tor Browser",                    NULL,           NULL,   1 << 8,       0,          -1 },
+	/* class            instance        title                   tags mask     isfloating  monitor */
+	{ "firefox", 				NULL,           "Picture-in-Picture",   0,            1,          -1 },
+	{ "Ao", 				    NULL,           NULL,   		            0,            1,          -1 },
+
+	{ "firefox",        NULL,           NULL,                   1 << 1,       0,          -1 },
+	{ "Brave-browser",  NULL,           NULL,                   1 << 1,       0,          -1 },
+	{ "Spotify",        NULL,           NULL,                   1 << 2,       0,          -1 },
+	{ "code-oss",       NULL,           NULL,                   1 << 3,       0,          -1 },
+	{ "Gimp",           NULL,           NULL,                   1 << 4,       0,          -1 },
+	{ "krita",          NULL,           NULL,                   1 << 4,       0,          -1 },
+	{ "discord",        NULL,           NULL,                   1 << 5,       0,          -1 },
+	{ "Steam",          NULL,           NULL,                   1 << 5,       0,          -1 },
+	{ "retroarch",      NULL,           NULL,                   1 << 5,       0,          -1 },
+	{ NULL,             "libreoffice",  NULL,                   1 << 6,       0,          -1 },
+	{ "Tor Browser",    NULL,           NULL,                   1 << 8,       0,          -1 },
 }; // }}}1
 
 /* => Layout(s) {{{1 */
@@ -107,6 +109,7 @@ static Key keys[] = {
   /* { MODSUP,                       XK_t,      spawn,          SHCMD("todoist") }, */
   { MODSUP,                       XK_w,      spawn,          SHCMD("thunar") },
   { MODSUP,                       XK_i,      spawn,          SHCMD("st -e htop") },
+  { MODSUP,                       XK_c,      spawn,          SHCMD("~/.dotfiles/scripts/calculator.sh") },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
   // }}}2
 
