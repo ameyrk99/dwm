@@ -55,6 +55,7 @@ static const Rule rules[] = {
 	{ "firefox",        NULL,           NULL,                   1 << 1,       0,          -1 },
 	{ "Brave-browser",  NULL,           NULL,                   1 << 1,       0,          -1 },
 	{ "Spotify",        NULL,           NULL,                   1 << 2,       0,          -1 },
+	{ "spotify-qt",     NULL,           NULL,                   1 << 2,       0,          -1 },
 	{ "code-oss",       NULL,           NULL,                   1 << 3,       0,          -1 },
 	{ "Gimp",           NULL,           NULL,                   1 << 4,       0,          -1 },
 	{ "krita",          NULL,           NULL,                   1 << 4,       0,          -1 },
