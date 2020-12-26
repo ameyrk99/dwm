@@ -24,15 +24,15 @@ static const char *fonts[]          = {
 
 #include "../colors.h"
 static const char *colors[][3]      = {
-	/*                  fg       bg          border     */
-	[SchemeNorm]    = { col_fg,  col_bg,      col_bdnorm },
-	[SchemeSel]     = { col_bg,  col_blue,    col_blue   },
-  [SchemeYellow]  = { col_bg,  col_yellow,  col_yellow  },
-  [SchemeRed]     = { col_bg,  col_red,     col_red  },
-  [SchemeGreen]   = { col_bg,  col_green,   col_green },
-  [SchemeBlue]    = { col_bg,  col_blue,    col_blue },
-  [SchemeMagenta] = { col_bg,  col_magenta, col_magenta },
-  [SchemeCyan]    = { col_bg,  col_cyan,    col_cyan },
+	/*                  fg            bg          border     */
+	[SchemeNorm]    = { col_fg,       col_bg,      col_bdnorm },
+	[SchemeSel]     = { col_bg,       col_blue,    col_blue   },
+  [SchemeYellow]  = { col_yellow,   col_bg,  col_yellow  },
+  [SchemeRed]     = { col_bg,       col_red,     col_red  },
+  [SchemeGreen]   = { col_green,    col_bg,   col_green },
+  [SchemeBlue]    = { col_blue,     col_bg,    col_blue },
+  [SchemeMagenta] = { col_magenta,  col_bg, col_magenta },
+  [SchemeCyan]    = { col_cyan,     col_bg,    col_cyan },
 };
 
 /* static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; */
@@ -51,6 +51,7 @@ static const Rule rules[] = {
 	/* class            instance        title                   tags mask     isfloating  monitor */
 	{ "firefox", 				NULL,           "Picture-in-Picture",   0,            1,          -1 },
 	{ "Ao", 				    NULL,           NULL,   		            0,            1,          -1 },
+	{ "Xfce4-notes",    NULL,           NULL,   		            0,            1,          -1 },
 
 	{ "firefox",        NULL,           NULL,                   1 << 1,       0,          -1 },
 	{ "Brave-browser",  NULL,           NULL,                   1 << 1,       0,          -1 },
