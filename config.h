@@ -10,6 +10,7 @@ static const unsigned int gappx     = 10;       /* gaps between windows */
 static const unsigned int snap      = 0;        /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const int user_bh            = 29;       /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const int viewontag          = 1;        /* 0 means don't follow */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -155,6 +156,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 
 	{ MODKEY|ShiftMask,             XK_l,      quit,           {0} },
+	/* { MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },  */
   // }}}2
 
   /* > Other ctl {{{2 */
